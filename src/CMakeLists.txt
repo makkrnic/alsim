@@ -20,10 +20,14 @@ link_directories(${Boost_LIBRARY_DIRS})
 set(program_name alsim)
 
 add_library(logger logger.cpp)
+add_library(voxel voxel.cpp)
+add_library(world world.cpp)
 
 add_executable(${program_name} main.cpp)
 target_link_libraries(${program_name}
   ${CMAKE_THREAD_LIBS_INIT}
   ${Boost_LIBRARIES}
   logger
+  voxel
+  world
 )
