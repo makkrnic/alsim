@@ -1,0 +1,3 @@
+[submodule "vendor/libnoise"]
+	path = vendor/libnoise
+	url = git@github.com:makkrnic/libnoise.git
