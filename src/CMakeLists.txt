@@ -21,8 +21,7 @@ find_package(Boost 1.55.0 COMPONENTS
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
-find_package(Libnoise REQUIRED)
-set(LIBNOISE_UTILS_LIBRARY "${CMAKE_SOURCE_DIR}/lib/libnoiseutils.so")
+find_package(LibNoise REQUIRED)
 
 set(program_name alsim)
 
@@ -35,8 +34,7 @@ add_executable(${program_name} main.cpp)
 target_link_libraries(${program_name}
   ${CMAKE_THREAD_LIBS_INIT}
   ${Boost_LIBRARIES}
-  ${LIBNOISE_LIBRARY}
-  ${LIBNOISE_UTILS_LIBRARY}
+  ${LIBNOISE_LIBRARIES}
   logger
   world
   voxel
