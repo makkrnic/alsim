@@ -52,14 +52,14 @@ Voxel* World::getVoxel(int i, int j, int k) {
   return voxels[i][j][k];
 }
 
-int World::getSizeX() {
+unsigned int World::getSizeX() {
   return sizeX;
 }
 
-int World::getSizeY() {
+unsigned int World::getSizeY() {
   return sizeY;
 }
 
-int World::getSizeZ() {
+unsigned int World::getSizeZ() {
   return sizeZ;
 }

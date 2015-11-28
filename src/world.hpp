@@ -19,9 +19,9 @@ public:
 
   Voxel* getVoxel(int i, int j, int k);
 
-  int getSizeX();
-  int getSizeY();
-  int getSizeZ();
+  unsigned int getSizeX();
+  unsigned int getSizeY();
+  unsigned int getSizeZ();
 
 private:
   static unsigned const DEFAULT_WORLD_SIZE_X = 50;
