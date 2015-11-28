@@ -1,4 +1,4 @@
-My master thesis
+My master's thesis
 
 # Artificial life simulation in 3D space
 
