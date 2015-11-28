@@ -4,7 +4,8 @@ class Voxel {
 public:
   enum Type {
     AIR,
-    GROUND
+    STONE,
+    WATER,
   };
 
   Voxel();

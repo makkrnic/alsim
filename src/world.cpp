@@ -9,7 +9,9 @@
 
 using namespace std;
 
-World::World() {
+World::World(unsigned int x, unsigned int y, unsigned int z, unsigned int wl) 
+  : sizeX(x), sizeY(y), sizeZ(z), waterLevel(wl)
+{
   generateWorld();
 }
 
@@ -19,20 +21,24 @@ void World::generateWorld() {
   noise::module::Perlin perlin;
 
   voxels.resize(sizeX);
-  for (int i = 0; i < sizeX; i++) {
+  for (uint i = 0; i < sizeX; i++) {
     voxels[i].resize(sizeY);
-    for (int j = 0; j < sizeY; j++) {
+    for (uint j = 0; j < sizeY; j++) {
       voxels[i][j].resize(sizeZ);
       
-      for (int k = 0; k < sizeZ; k++) {
-        double height = perlin.GetValue((float)i/sizeX, (float)j/sizeY, (float)k/sizeZ);
-        cout << height << endl;
+      for (uint k = 0; k < sizeZ; k++) {
+        double perlinValue = perlin.GetValue((float)i/sizeX, (float)j/sizeY, (float)k/sizeZ);
         Voxel::Type type;
-        if ( height >= 0 ) {
-          type = Voxel::AIR;
+        if ( perlinValue >= 0 ) {
+          if (k > waterLevel) {
+            type = Voxel::AIR;
+          }
+          else {
+            type = Voxel::WATER;
+          }
         }
         else {
-          type = Voxel::GROUND;
+          type = Voxel::STONE;
         }
         voxels[i][j][k] = new Voxel(type);
       }
